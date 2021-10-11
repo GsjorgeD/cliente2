@@ -1,24 +1,40 @@
-# README
+# Notas proyecto de prueba
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requisitos previso 
 
-Things you may want to cover:
+### * Tener instalado ruby
+### * Tener instalado Ruby on Rails
+### * Tener instalado Yarn
+##  * Tener instalado git
 
-* Ruby version
 
-* System dependencies
+1.- Clona el repositorio y guardalo en una carpeta de pruebas
 
-* Configuration
+*ejemplo de direccion: C:\Users\Usuario\Documents\proyecto\
 
-* Database creation
+#### Escribe en tu cmd en la direccion que elegiste:
+* git clone https://github.com/GsjorgeD/cliente2.git
 
-* Database initialization
+#### Entra en la carpeta ejecutando: 
+* cd cliente2
 
-* How to run the test suite
+2.- Despues de clonar ejecuta en el cmd (simbolo del sistema)  estando en la direcion del proyecto:
 
-* Services (job queues, cache servers, search engines, etc.)
+* rails s
 
-* Deployment instructions
+#### *Si falla escribe en el cmd:
 
-* ...
+* bundle update
+
+* bundle install
+
+Ejecuta:
+
+* rails s
+
+3.- Escribe en el navegador la direccion:
+
+* localhost:3000
+
+### Deberia mostrar la siguiente pantalla: 
+![imagen](https://user-images.githubusercontent.com/55931632/134757858-240e839d-eea9-4e6e-ae84-6e66f37dce58.png)
