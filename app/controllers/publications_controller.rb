@@ -12,7 +12,7 @@ class PublicationsController < ApplicationController
   end
 
   def create
-    @publication = Publication.create(title: params[:publication][:title], cuerpo: params[:publication][:cuerpo])
+    @publication = Publication.create(title: params[:publication][:title], cuerpo: params[:publication][:cuerpo], imagen: params[:publication][:imagen])
     render json: @publication
   end
 
@@ -27,7 +27,7 @@ class PublicationsController < ApplicationController
 
   def update
     #@publication = Publication.find(params[:id])
-    @publication.update(title: params[:publication][:title], cuerpo: params[:publication][:cuerpo])
+    @publication.update(title: params[:publication][:title], cuerpo: params[:publication][:cuerpo], imagen: params[:publication][:imagen])
     #render json: @publication
     redirect_to @publication
   end

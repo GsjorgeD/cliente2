@@ -1,4 +1,12 @@
+
+<% if @publication.imagen.attached? %>
+<div>
+    <%= image_tag url_for(@publication.imagen) %>
+</div>
+<%end%>
+
 <h1><%=@publication.title%></h1>
+
 <div>
   <%=@publication.cuerpo  %>
 </div>
