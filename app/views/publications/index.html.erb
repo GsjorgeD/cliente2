@@ -1,5 +1,7 @@
 <% if user_signed_in? %>
 <h1>Hola <%= current_user.email %></h1>
+<%elsif admin_signed_in?%>
+<h1>Hola <%= current_admin.email %></h1>
 <% end %>
 <h2>Publicaciones</h2>
 

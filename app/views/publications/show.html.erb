@@ -4,6 +4,8 @@
 </div>
 
 <div>
+  <% if admin_signed_in? %>
   <%=link_to "Eliminar", @publication, method: :delete%>
-  
+  <%= link_to 'Editar', edit_publication_path %>
+  <% end %>
 </div>
