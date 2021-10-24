@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
 #root 'application#hello'
 root 'publications#index'
 #get 'publications/:id/edit', to: 'publications#edit' no es neceario al tener rsouses

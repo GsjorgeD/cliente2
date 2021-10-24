@@ -1,11 +1,11 @@
 # Notas proyecto de prueba
 
-## Requisitos previso 
+## Requisitos previso
 
 ### * Tener instalado ruby
 ### * Tener instalado Ruby on Rails
 ### * Tener instalado Yarn
-##  * Tener instalado git
+###  * Tener instalado git
 
 
 1.- Clona el repositorio y guardalo en una carpeta de pruebas
@@ -15,7 +15,7 @@
 #### Escribe en tu cmd en la direccion que elegiste:
 * git clone https://github.com/GsjorgeD/cliente2.git
 
-#### Entra en la carpeta ejecutando: 
+#### Entra en la carpeta ejecutando:
 * cd cliente2
 
 2.- Despues de clonar ejecuta en el cmd (simbolo del sistema)  estando en la direcion del proyecto:
@@ -36,5 +36,5 @@ Ejecuta:
 
 * localhost:3000
 
-### Deberia mostrar la siguiente pantalla: 
+### Deberia mostrar la siguiente pantalla:
 ![imagen](https://user-images.githubusercontent.com/55931632/134757858-240e839d-eea9-4e6e-ae84-6e66f37dce58.png)
