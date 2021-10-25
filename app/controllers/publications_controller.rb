@@ -12,8 +12,9 @@ class PublicationsController < ApplicationController
   end
 
   def create
-    @publication = Publication.create(title: params[:publication][:title], cuerpo: params[:publication][:cuerpo], imagen: params[:publication][:imagen])
-    render json: @publication
+    @publication = current_admin.publications.create(title: params[:publication][:title], cuerpo: params[:publication][:cuerpo], imagen: params[:publication][:imagen])
+    #render json: @publication
+    redirect_to @publication
   end
 
   def show

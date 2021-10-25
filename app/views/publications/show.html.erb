@@ -1,11 +1,13 @@
 
 <% if @publication.imagen.attached? %>
 <div>
-    <%= image_tag url_for(@publication.imagen) %>
+    <%= image_tag url_for(@publication.imagen), height:400 %>
 </div>
 <%end%>
 
 <h1><%=@publication.title%></h1>
+
+<p>Publicado por: <strong><%=@publication.admin.email%></strong></p>
 
 <div>
   <%=@publication.cuerpo  %>
