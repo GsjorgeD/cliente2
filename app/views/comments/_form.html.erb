@@ -1,0 +1,16 @@
+<%= form_with(model: @comment, local: true) do |form|%>
+
+  <div >
+    <%=form.label :asunto %>
+    <%=form.text_field :subject %>
+  </div>
+
+  <div >
+    <%=form.label :detalles %>
+    <%=form.rich_text_area :detalles %>
+  </div>
+
+  <div>
+    <%=form.submit%>
+  </div>
+<% end %>

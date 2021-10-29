@@ -8,4 +8,5 @@ resources :publications
 resources :comments
 get "publications", to:"publications#index"
 get "new", to:"publications#new"
+get "discussion", to:"comments#new"
 end

@@ -2,10 +2,10 @@
   <li>
     <%= link_to "Inicio", root_path %>
     <%= link_to "Publicaciones", publications_path %>
-
+    <%= link_to "Comunidad", comments_path %>
 
   <% if user_signed_in? %>
-
+    <%= link_to "Hacer una pregunta", discussion_path %>
     <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %>
 
   <% elsif admin_signed_in? %>

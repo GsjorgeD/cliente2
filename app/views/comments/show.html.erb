@@ -1,0 +1,20 @@
+<h1><%=@comment.subject %></h1>
+
+<div>
+  <%=@comment.detalles  %>
+</div>
+
+<%if @comment.user == current_user%>
+<p><strong>Tu publicaste esta pregunta</strong></p>
+<div>
+  <%=link_to "Eliminar comentario", @publication, method: :delete  %>
+</div>
+<% elsif admin_signed_in? %>
+<p>Publicado por: <strong><%=@comment.user.email%></strong></p>
+<div>
+  <%=link_to "Eliminar comentario", @publication, method: :delete  %>
+  <%= link_to 'Editar', edit_comment_path %>
+</div>
+<% else %>
+<p>Publicado por: <strong><%=@comment.user.email%></strong></p>
+<% end %>
