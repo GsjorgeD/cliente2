@@ -7,31 +7,33 @@
 <div>
     <%= image_tag url_for(@publication.imagen), height:600 %>
 </div>
-<%end%>
 <h1><%= @publication.title %>
   <%= link_to "Ver publicacion", @publication%>
 </h1>
+<%end%>
+
 
 <% if @publication1.imagen.attached? %>
 <div>
     <%= image_tag url_for(@publication1.imagen), height:200 %>
 </div>
-<%end%>
 <h3><%= @publication1.title %></h3>
   <%= link_to "Leer más", @publication1%>
+<%end%>
+
 
 <% if @publication2.imagen.attached? %>
 <div>
     <%= image_tag url_for(@publication2.imagen), height:200 %>
 </div>
-<%end%>
 <h3><%= @publication2.title %></h3>
   <%= link_to "Leer más", @publication2%>
+<%end%>
 
 <% if @publication3.imagen.attached? %>
 <div>
     <%= image_tag url_for(@publication3.imagen), height:200 %>
 </div>
-<%end%>
 <h3><%= @publication3.title %></h3>
   <%= link_to "Leer más", @publication3%>
+<%end%>
