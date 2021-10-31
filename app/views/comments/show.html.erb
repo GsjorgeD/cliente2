@@ -18,3 +18,16 @@
 <% else %>
 <p>Publicado por: <strong><%=@comment.user.email%></strong></p>
 <% end %>
+
+<%= form_for([@comment, @comment.answers.build]) do |form| %>
+  <p>
+    <%= form.label :reponder%><br>
+    <%=form.rich_text_area :respuesta %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<h2>Respuesta(s)</h2>
+<%= render @comment.answers %>

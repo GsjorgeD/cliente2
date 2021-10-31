@@ -1,0 +1,10 @@
+<p>
+  <%= answer.respuesta %>
+</p>
+<% if admin_signed_in? %>
+<p>
+  <%= link_to 'Eliminar Respuesta', [answer.comment, answer],
+               method: :delete,
+               data: { confirm: '¿Estas seguro?' } %>
+</p>
+<%end%>

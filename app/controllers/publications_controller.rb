@@ -39,6 +39,13 @@ class PublicationsController < ApplicationController
     redirect_to root_path
   end
 
+  def home
+    @publication = Publication.last
+    @publication1 =Publication.first
+    @publication2 =Publication.find(2)
+    @publication3 =Publication.find(3)
+  end
+
   def find_publication
     @publication = Publication.find(params[:id])
   end

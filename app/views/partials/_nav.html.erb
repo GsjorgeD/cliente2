@@ -9,7 +9,7 @@
     <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %>
 
   <% elsif admin_signed_in? %>
-    <%= link_to "Escribir", new_path %>
+    <%= link_to "Escribir publicacion", new_path %>
     <%= link_to "Cerrar sesion", destroy_admin_session_path, method: :delete %>
 
   <%else%>

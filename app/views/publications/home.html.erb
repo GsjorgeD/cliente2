@@ -1,0 +1,37 @@
+<% if user_signed_in? %>
+<h2>Hola <%= current_user.email %></h2>
+<%elsif admin_signed_in?%>
+<h2>Bienvenido administrador <%= current_admin.email %></h2>
+<% end %>
+<% if @publication.imagen.attached? %>
+<div>
+    <%= image_tag url_for(@publication.imagen), height:600 %>
+</div>
+<%end%>
+<h1><%= @publication.title %>
+  <%= link_to "Ver publicacion", @publication%>
+</h1>
+
+<% if @publication1.imagen.attached? %>
+<div>
+    <%= image_tag url_for(@publication1.imagen), height:200 %>
+</div>
+<%end%>
+<h3><%= @publication1.title %></h3>
+  <%= link_to "Leer más", @publication1%>
+
+<% if @publication2.imagen.attached? %>
+<div>
+    <%= image_tag url_for(@publication2.imagen), height:200 %>
+</div>
+<%end%>
+<h3><%= @publication2.title %></h3>
+  <%= link_to "Leer más", @publication2%>
+
+<% if @publication3.imagen.attached? %>
+<div>
+    <%= image_tag url_for(@publication3.imagen), height:200 %>
+</div>
+<%end%>
+<h3><%= @publication3.title %></h3>
+  <%= link_to "Leer más", @publication3%>
