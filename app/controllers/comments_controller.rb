@@ -15,7 +15,8 @@ class CommentsController < ApplicationController
   #  @comment = Comment.create(subject: params[:comment][:subject], detalles: params[:comment][:detalles])
     if user_signed_in?
       @comment = current_user.comments.create(comment_params)
-      render json: @comment
+      redirect_to @comment
+      #render json: @comment
     else
       respond_to do |format|
       format.html { redirect_to comments_path, notice: "Necesitas iniciar sesión o crear una cuenta de usuario" }
