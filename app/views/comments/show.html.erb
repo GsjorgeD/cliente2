@@ -1,3 +1,5 @@
+
+<!--
 <h1><%=@comment.subject %></h1>
 
 <div>
@@ -31,3 +33,116 @@
 
 <h2>Respuesta(s)</h2>
 <%= render @comment.answers %>
+-->
+
+<% @title = "Por Carmen | " + @comment.subject %>
+
+    <div id = "comentarios" class = "container mb-5">
+      <div class = "row height d-flex justify-content-center align-items-center">
+          <div class = "col-md-12">
+
+              <div class = "card shadow rounded-3">
+
+
+                <div class = "mt-4">
+
+                      <div class = "d-flex flex-row p-3"> <img src = "https://cdn-icons-png.flaticon.com/512/616/616412.png" width = "40" height = "40" class = "rounded-circle mr-3">
+                          <div class = "w-100">
+                              <div class = "col-12 col-md-6 justify-content-between align-items-center">
+                                  <div class = "flex-row align-items-center"> <span class = "mr-2 ms-1 me-1 fw-bold"><%=@comment.user.email%></span> 
+                                  
+                                  <% if @comment.user == current_user %>
+                                    <div class = "badge bg-success fw-bold mb-1 ms-1">Tú publicaste esta pregunta</div> 
+                                  <% end %>
+
+                                  </div> 
+                                <div>  
+                                  <small class = "mt-3 mb-3 ms-1">
+                                    <svg xmlns = "http://www.w3.org/2000/svg" width = "12" height = "12" fill = "currentColor" class = "bi bi-calendar" viewBox = "0 0 16 16">
+                                      <path d = "M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                    </svg>
+
+                                  <%= @comment.created_at %>
+                                  </small>
+                                </div>
+
+                              </div>
+                              <p class = "fs-4 text-capitalize fst-italic mt-2">
+                              <%= @comment.subject %>
+                              </p>
+
+                              <p>
+                              <%= @comment.detalles %>
+                              </p>
+
+
+                            <%if @comment.user == current_user%>
+                            <div>
+                              <%=link_to "Eliminar", @publication, method: :delete, class: "btn btn-danger"  %>
+                            </div>
+                            <% elsif admin_signed_in? %>
+                            <div>
+                              <%=link_to "Eliminar", @publication, method: :delete, class: "btn btn-danger"  %>
+                              <%= link_to 'Editar', edit_comment_path, class: "btn btn-primary" %>
+                            </div>
+                            <% end %>
+
+                              <div class = "d-flex flex-row user-feed"> 
+                           <span>
+                            <svg xmlns = "http://www.w3.org/2000/svg" width = "12" height = "12" fill = "currentColor" class = "bi bi-chat-right me-2" viewBox = "0 0 16 16">
+                              <path d = "M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
+                            </svg>                           
+                           </span>   
+                              <span class = "wish">
+                              
+                              1</span> <span class = "ml-3 ms-1">
+                              respuesta(s).</span> </div>
+                          </div>
+                      </div>
+
+      
+                  </div>
+
+                  <div class = "p-2">
+                    <hr/>
+                    <h6 class = "ms-3">Comentarios</h6>
+                  </div>
+
+              <% if user_signed_in? %>
+                <%= form_for([@comment, @comment.answers.build]) do |form| %>
+                  <div class = "mt-2 d-flex flex-row align-items-center p-3 form-color"> <img src = "https://cdn-icons-png.flaticon.com/512/1660/1660461.png" width = "50" class="rounded-circle mr-2"> 
+                    <span class = "ms-1 fw-bold"><%= current_user.email %></span>
+                  </div>
+
+                  <div class = "container form-color pb-4">
+                    <%= form.rich_text_area :respuesta, class: "form-control" %>
+                    <%= form.submit "Publicar respuesta", class: "btn btn-success mt-2" %>
+                  </div>
+                <% end %>
+              <% else %>
+                  <div class = "mt-2 d-flex flex-row align-items-center p-3 form-color"> 
+                    <span class = "ms-1 fw-bold">Necesitas crear una cuenta o iniciar sesión para responder.</span>
+                  </div>
+              <% end %>
+
+                  <div class = "mt-2 mb-4">
+
+                      <div class = "d-flex flex-row p-3"> <img src = "https://cdn-icons.flaticon.com/png/512/3975/premium/3975171.png?token=exp=1636427918~hmac=4328215d3030e335bf3c113fc970308f" width = "40" height = "40" class = "rounded-circle mr-3">
+                          <div class = "w-100">
+                              <div class = "d-flex justify-content-between align-items-center">
+                                  <div class = "d-flex flex-row align-items-center"> <span class = "mr-2 ms-2 fw-bold">Respuestas:</span> </div>
+                              </div>
+
+                              <div class = "ms-2 mt-2">
+                                <%= render @comment.answers %>
+                              </div>
+
+                        </div>
+                      </div>
+
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>

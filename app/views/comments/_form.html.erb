@@ -1,4 +1,4 @@
-<%= form_with(model: @comment, local: true) do |form|%>
+<!--<%= form_with(model: @comment, local: true) do |form|%>
 
   <div >
     <%=form.label :asunto %>
@@ -13,4 +13,35 @@
   <div>
     <%=form.submit%>
   </div>
-<% end %>
+<% end %>-->
+
+        <!-- Formulario de comentarios -->
+
+              <%= form_with(model: @comment, local: true) do |form|%>
+
+                <div class = "row justify-content-center mb-2">
+
+                  <!-- Asunto -->
+                  <div class = "col-12 col-md-6">
+                    <label for = "text" class = "form-label">Asunto:</label>
+                    <%= form.text_field :subject, class: "form-control" %>
+                  </div>
+        
+                  </div>           
+
+                <div class = "row justify-content-center mb-2">
+
+                  <!-- Detalles -->
+                  <div class = "col-12 col-md-6">
+                    <label for = "text" class = "form-label">Descripción:</label>
+                    <%= form.rich_text_area :detalles, class: "form-control" %>
+                  </div>
+        
+                </div>                  
+
+                <!-- Guardar comentario -->
+                <div class="row justify-content-center d-grid mt-4 mb-2">
+                  <%= form.submit "Guardar comentario", class: "btn btn-success mt-3 mb-5"  %>
+                </div>
+
+                <% end %>

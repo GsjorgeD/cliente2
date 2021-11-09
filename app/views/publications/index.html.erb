@@ -1,8 +1,22 @@
-<% if user_signed_in? %>
+<!--<% if user_signed_in? %>
 <h1>Hola <%= current_user.email %></h1>
 <%elsif admin_signed_in?%>
 <h1>Hola <%= current_admin.email %></h1>
 <% end %>
 <h2>Publicaciones</h2>
+-->
+ <% @title = "Por Carmen | Blog" %>
 
-<%= render @publications %>
+        <!-- Publicaciones -->
+        <section id = "blog">
+            <div class = "container">
+            
+                <!-- Titulo -->
+                <div class = "titulo-principal mt-2">
+                  <h2>Blog</h2>
+                </div>
+
+                <%= render @publications %>
+
+            </div>
+        </section>

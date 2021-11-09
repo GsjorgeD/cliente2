@@ -1,4 +1,51 @@
-<h3><%= comment.subject %></h3>
-<p><%=comment.detalles %></p>
-<p><%=comment.created_at %></p>
-<%= link_to "Ver más", comment%>
+
+        <!-- Publicacion - Comuniad -->
+          <div class = "col-md-4">
+            <div
+              class = "card card-comunidad text-white card-has-bg click-col"
+              style = "
+                background-image: url('https://previews.123rf.com/images/sablegear/sablegear1608/sablegear160800020/61729947-vector-blanco-y-negro-sin-fisuras-patr%C3%B3n-de-hojas.jpg');
+              ">
+         
+              <img
+                class = "card-img d-none"
+                src = "https://previews.123rf.com/images/sablegear/sablegear1608/sablegear160800020/61729947-vector-blanco-y-negro-sin-fisuras-patr%C3%B3n-de-hojas.jpg"
+                alt = "Imagen-comentario"
+              />
+
+              <div class = "card-img-overlay d-flex flex-column">
+                <div class = "card-body">
+                  <small class = "card-meta mb-2">Responde esta pregunta</small>
+                  <h4 class = "card-title mt-0">
+                    <%= link_to comment.subject, comment, class: "text-white text-decoration-none text-capitalize" %>
+                  </h4>
+                  <small>
+                    <svg xmlns = "http://www.w3.org/2000/svg" width = "11" height = "11" fill = "currentColor" class = "bi bi-calendar-event me-1" viewBox = "0 0 16 16">
+                        <path d = "M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                        <path d = "M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                    </svg>
+                  <%= comment.created_at %>
+                  </small>
+                </div>
+                <div class = "card-footer">
+                  <div class = "media">
+                    <img
+                      class = "mr-3 rounded-circle"
+                      src = "https://cdn-icons-png.flaticon.com/512/616/616412.png"
+                      alt = "Generic placeholder image"
+                      style = "max-width: 50px"
+                    />
+                    <div class = "media-body">
+                      <h6 class = "my-0 text-white d-block"><%=comment.user.email%></h6>
+                      <small>Participante.</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+

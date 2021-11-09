@@ -1,0 +1,66 @@
+<!--
+<h2>Forgot your password?</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>-->
+
+<% @title = "Por Carmen | Recuperar cuenta" %>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <!-- Formulario para recuperar cuenta -->
+        <section class = "rcuperar-cta">
+            <div class = "container w-75 mb-lg-6 rounded shadow">
+                <div class = "row align-items-stretch">
+
+                    <%= render "devise/shared/error_messages", resource: resource %>
+
+                    <div class = "mt-4 mb-2 text-center">
+                        <h2 class = "fw-bold">¿Olvidaste tu contraseña?</h2>
+                        <p>Por favor, introduce tu correo electrónico y recibirás un enlace para crear una contraseña nueva.</p>
+                    </div>
+
+                    <div>
+                          <!-- Campo de correo electronico -->
+                            <div class = "row justify-content-center mb-2">
+
+                                <div class = "col-12 col-md-6">
+                                  <label for = "email" class = "form-label">Correo electrónico:</label>
+                                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                                </div>
+        
+                            </div>
+
+                            <!-- Restablecer contraseña -->
+                            <div class = "row justify-content-center d-grid mt-4 mb-3">
+                              <div class = "col">
+                                <%= f.submit "Restablecer contraseña", class: "btn btn-primary" %>
+                              </div>             
+                            </div>      
+
+                          <!-- Links -->
+                            <div class = "row justify-content-center mb-4">
+                                
+                                <div class = "col-12 col-md-6">
+                                  <span>¿Ya tienes cuenta? <%= render "devise/shared/links" %></span>
+                                </div>
+        
+                            </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <% end %>

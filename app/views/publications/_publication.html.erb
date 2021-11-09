@@ -1,5 +1,45 @@
-
+<!--
   <h3><%= publication.title %></h3>
   <p><%=publication.created_at %></p>
-  <%= link_to "Ver más", publication%>
+  <%= link_to "Ver más", publication%>-->
+
+                  <!-- Tarjeta de publicaciones -->
+                <article class = "tarjeta-blog tarjeta-bg color-tarjeta">
+
+                <% if publication.imagen.attached? %>
+                    <div>
+                        <%= image_tag url_for(publication.imagen), class: "tarjeta-img" %>
+                    </div>
+                <%end%>
+
+                    <!--<%=  image_tag "https://picsum.photos/500/501", class: "tarjeta-img" %>
+                        <img class = "tarjeta-img" src = "https://picsum.photos/500/501" alt = "Nuestro blog" />-->
+    
+                    <div class = "tarjeta-text t-dark">
+                        <h1 class = "titulo-tarjeta color-tarjeta text-capitalize">
+                        <!--<%= publication.cuerpo %>-->
+                        <%= link_to publication.title, publication %>
+                        </h1>
+                        <div class = "subtitulo-tarjeta small">
+                            <time datetime = "2020-05-25 12:00:00">
+                                <svg xmlns = "http://www.w3.org/2000/svg" width = "11" height = "11" fill = "currentColor" class = "bi bi-calendar4" viewBox = "0 0 16 16">
+                                    <path d = "M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z"/>
+                                </svg> 
+                                <%= publication.created_at %>
+                            </time>
+                        </div>
+                        <div class = "barra-tarjeta"></div>
+                        <div class = "tarjeta-texto-ct">
+                        <%= publication.cuerpo %>
+                        </div>
+                        <ul class = "tarjeta-tag">
+                            <li class = "tarjeta-item leer-blog color-tarjeta">
+                                <svg xmlns = "http://www.w3.org/2000/svg" width = "14" height = "14" fill = "currentColor" class = "bi bi-plus-lg" viewBox = "0 0 16 16">
+                                    <path fill-rule = "evenodd" d = "M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                                </svg>
+                                <%= link_to "Leer más", publication %>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
     

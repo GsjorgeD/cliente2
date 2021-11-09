@@ -1,0 +1,98 @@
+<!--
+<h2>registro</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(Mínimo <%= @minimum_password_length %> caracteres.)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+-->
+
+<% @title = "Por Carmen | Crear cuenta" %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <!-- Formulario de registro -->
+        <section class = "login">
+            <div class = "container w-75 mt-5 rounded-5 shadow mb-4">
+                <div class = "row align-items-stretch">
+                
+                <%= render "devise/shared/error_messages", resource: resource %>   
+
+                  <!-- Contenedor del login (Izquierda) -->
+                  <div class = "col bg bg-white d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded-5"
+                    style = "
+                        background-image: url(<%= asset_path 'https://res.cloudinary.com/webalys/image/private/w_800,h_800,ar_1/f_auto/v1/icons/barcelona/user-people/user-people/walk-together-2-17333kee4vyvgyhl5ep30s.png' %>);
+                    ">
+                    </div>
+
+                    <!-- Contenedor del login (Derecha) -->
+                    <div class = "col bg-white rounded-end">
+                        <div class = "text-end">
+                            <h2 class = "fw-bold text-center">Crear cuenta</h2>
+                        </div> 
+
+                          <!-- Formulario de inicio de sesion -->
+                          <div class = "container py-3" id = "nav-home"> 
+
+                                  <!-- Campo de correo electronico -->
+                                  <div class = "mb-4 mt-1">
+                                      <label for = "email" class = "form-label">Correo electrónico:</label>
+                                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                                  </div>
+                                   
+                                  <!-- Campo de contraseña -->
+                                  <div class = "mb-4">
+                                      <label for = "password" class = "form-label">Contraseña:</label>
+                                        <% if @minimum_password_length %>
+                                        <em>(Mínimo <%= @minimum_password_length %> caracteres)</em>
+                                        <% end %><br />
+                                        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+                                  </div>
+
+                                  <!-- Campo de confirmar contraseña -->
+                                  <div class = "mb-4 mt-1">
+                                      <label for = "email" class = "form-label">Confirmar contraseña:</label>
+                                      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"  %>
+                                  </div>
+
+                                  <!-- Boton de iniciar sesion -->
+                                  <div class = "d-grid">
+                                    <%= f.submit "Registrarme", class: "btn btn-success" %>
+                                  </div>
+
+                                  <!-- Links -->
+                                  <div class = "my-3 text-decoration-none">
+                                      <span>¿Ya tienes cuenta? <%= render "devise/shared/links" %></span>
+                                  </div>
+                    
+                          </div>
+
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <% end %>

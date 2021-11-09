@@ -1,1 +1,21 @@
-<%= render "publications/form" %>
+
+<% @title = "Por Carmen | Publicar" %>
+
+        <!-- Formulario de pubicaciones -->
+        <section id = "form-publicaciones">
+            <div class = "container w-75 mb-lg-6 rounded shadow">
+                <div class = "row pb-4">
+
+                <!-- Titulo -->
+                <div class = "titulo-principal mt-4">
+                <h2><span class = "text-dark">Nueva</span> publicación</h2>
+                </div>
+
+                <div class = "container-fluid">
+
+                <%= render "publications/form" %>
+
+                </div>
+                </div>
+              </div>
+        </section>

@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cliente2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title><%= @title %></title>
+    <meta name = "viewport" content = "width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>    
+
+    <%= favicon_link_tag asset_path('favicon.png') %>   
   </head>
 
-  <body>
+  <body>  
     <% if notice %>
-    <p class="notice"><%= notice %></p>
+    <div class = "alert alert-primary alert-dismissible notice fade show" role = "alert">
+      <%= notice %>
+      <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
+    </div>
     <% end %>
     <% if alert %>
-    <p class="alert"><%= alert %></p>
+    <div class = "alert alert-danger notice fade show" role = "alert">
+      <%= alert %>
+    </div>
     <% end %>
-    <%=render "partials/nav" %>
+    <%= render "partials/navbar" %>
+    <%= render "partials/btn_up" %>    
+    <!--<%=render "partials/nav" %>-->
     <%= yield %>
+    <%= render "partials/footer" %>
+    <%= javascript_pack_tag 'btn_up'%>
   </body>
 </html>

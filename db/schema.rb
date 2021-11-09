@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_10_30_071627) do
   end
 
   create_table "answers", force: :cascade do |t|
-    t.integer "comment_id", null: false
+    t.integer "comment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["comment_id"], name: "index_answers_on_comment_id"
@@ -74,9 +74,7 @@ ActiveRecord::Schema.define(version: 2021_10_30_071627) do
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.integer "admin_id"
-    t.index ["admin_id"], name: "index_comments_on_admin_id"
+    t.integer "user_id", null: false
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -103,6 +101,6 @@ ActiveRecord::Schema.define(version: 2021_10_30_071627) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "answers", "comments"
+  add_foreign_key "comments", "users"
   add_foreign_key "publications", "admins"
 end

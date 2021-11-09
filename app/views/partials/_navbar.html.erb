@@ -1,0 +1,104 @@
+        
+        <!-- Navbar -->
+        <header class = "header-nav">
+            <nav class = "navbar fixed-top navbar-expand-lg p-md-3 bg-navbar" id = "navbar-inicio">
+                <div class = "container">
+                      
+                    <%= image_tag "Logotipo.png", size: "32", alt: "Logotipo" %>
+                    <%= link_to "Asociación por Carmen", root_path, class: "navbar-brand ms-1" %>
+  
+                  <button
+                    class = "navbar-toggler"
+                    type = "button"
+                    data-bs-toggle = "collapse"
+                    data-bs-target = "#navbarNav"
+                    aria-controls = "navbarNav"
+                    aria-expanded = "false"
+                    aria-label = "Toggle navigation"
+                  >
+                    <span class = "navbar-toggler-icon"></span>
+                  </button>
+          
+                  <div class = "collapse navbar-collapse" id = "navbarNav">
+                    <div class = "mx-auto"></div>
+                    <ul class = "navbar-nav">
+  
+                      <li class = "nav-item">
+                        <%= link_to "Inicio", root_path, class: "nav-link seleccion" %>
+                      </li>
+  
+                      <li class = "nav-item">
+                        <%= link_to "Blog", publications_path, class: "nav-link seleccion" %>
+                      </li>   
+
+                    <li class = "nav-item">
+                      <%= link_to "Comunidad", comments_path, class: "nav-link seleccion" %>
+                    </li>    
+
+                    <% if user_signed_in? %>
+                        <li class = "nav-item">
+                            <%= link_to "Preguntar", discussion_path, class: "nav-link seleccion" %>
+                        </li>
+                    <% elsif admin_signed_in? %>
+                        <li class = "nav-item">
+                            <%= link_to "Publicar", new_path, class: "nav-link seleccion" %>
+                        </li>
+                    <% end %>
+
+                      <li class = "nav-item">
+                         <a href = "#" class = "nav-link seleccion">Voluntarios</a>
+                      </li>  
+
+                    <!-- Sesion usuario -->
+                    <% if user_signed_in? %>
+                    <li class = "nav-item dropdown">
+
+                      <a class = "nav-link dropdown-toggle" href = "#" id = "navbarDropdown" role = "button" data-bs-toggle = "dropdown" aria-expanded = "false">
+                        Hola, <%= current_user.email %>
+                      </a>
+
+                      <ul class = "dropdown-menu" aria-labelledby = "navbarDropdownMenuLink">
+
+                        <li>
+                            <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class: "dropdown-item seleccion" %>
+                        </li>
+                      </ul>
+
+                    </li>
+
+                    <!-- Sesion admin -->
+                    <% elsif admin_signed_in? %>
+                    <li class = "nav-item dropdown">
+
+                      <a class = "nav-link dropdown-toggle" href = "#" id = "navbarDropdown" role = "button" data-bs-toggle = "dropdown" aria-expanded = "false">
+                        Administrador, <%= current_admin.email %>
+                      </a>
+
+                      <ul class = "dropdown-menu" aria-labelledby = "navbarDropdownMenuLink">
+
+                        <li>
+                            <%= link_to "Cerrar sesion", destroy_admin_session_path, method: :delete, class: "dropdown-item seleccion" %>
+                        </li>
+                        
+                      </ul>
+
+                    </li>
+
+                    <% else %>
+
+                      <li class = "nav-item">
+                        <%= link_to "Iniciar sesión", new_user_session_path, class: "nav-link seleccion"  %>
+                      </li> 
+
+                      <li class = "nav-item">
+                        <%= link_to "Registrarse", new_user_registration_path, class: "nav-link seleccion"  %>
+                      </li>                       
+
+                    <% end %>
+
+                    </ul>
+                  </div>
+  
+                </div>
+              </nav>
+        </header>
