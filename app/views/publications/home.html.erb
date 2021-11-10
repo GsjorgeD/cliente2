@@ -1,43 +1,3 @@
-<!--<% if user_signed_in? %>
-<h2>Hola <%= current_user.email %></h2>
-<%elsif admin_signed_in?%>
-<h2>Bienvenido administrador <%= current_admin.email %></h2>
-<% end %>
-<% if @publication.imagen.attached? %>
-<div>
-    <%= image_tag url_for(@publication.imagen), height:600 %>
-</div>
-<h1><%= @publication.title %>
-  <%= link_to "Ver publicacion", @publication%>
-</h1>
-<%end%>
-
-
-<% if @publication1.imagen.attached? %>
-<div>
-    <%= image_tag url_for(@publication1.imagen), height:200 %>
-</div>
-<h3><%= @publication1.title %></h3>
-  <%= link_to "Leer más", @publication1%>
-<%end%>
-
-
-<% if @publication2.imagen.attached? %>
-<div>
-    <%= image_tag url_for(@publication2.imagen), height:200 %>
-</div>
-<h3><%= @publication2.title %></h3>
-  <%= link_to "Leer más", @publication2%>
-<%end%>
-
-<% if @publication3.imagen.attached? %>
-<div>
-    <%= image_tag url_for(@publication3.imagen), height:200 %>
-</div>
-<h3><%= @publication3.title %></h3>
-  <%= link_to "Leer más", @publication3%>
-<%end%>
--->
 
 <% @title = "Por Carmen | Inicio" %>
 
@@ -51,8 +11,7 @@
         <div class = "col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1 class = "text-capitalize"><%= @publication.title %></h1>
           <div>
-          <%= link_to "Ver más", @publication, class: "btn-pub scrollto" %>
-          <!--<a href = "#" class = "btn-pub scrollto">Leer más</a>--->
+          <%= link_to "Ultima publicación", @publication, class: "btn-pub scrollto" %>
           </div>
         </div>
         <div class = "col-xl-4 col-lg-6 order-1 order-lg-2 banner-img" data-aos = "zoom-in" data-aos-delay = "150">
@@ -60,8 +19,7 @@
                 <div>
                   <%= image_tag url_for(@publication.imagen), class: "img-fluid" %>
                 </div>
-              <%end%>    
-          <!--<img src = "https://picsum.photos/1000/1000" class = "img-fluid" alt="Blog">-->
+              <%end%>
         </div>
       </div>
 
@@ -95,7 +53,7 @@
                   </h4>
                   <span><%= @publication1.created_at %></span>
                   <a>
-                    <%= link_to "Ver más", @publication1, class: "float-end btn-mas" %>
+                    <%= link_to "Ver más", @publication1, class: "float-end btn-mas me-2" %>
                   </a>
                 </div>
               </div>
@@ -117,7 +75,7 @@
                   </h4>
                   <span><%= @publication2.created_at %></span>
                   <a>
-                    <%= link_to "Ver más", @publication2, class: "float-end btn-mas" %>
+                    <%= link_to "Ver más", @publication2, class: "float-end btn-mas me-2" %>
                   </a>
                 </div>
               </div>
@@ -139,7 +97,7 @@
                   </h4>
                   <span><%= @publication3.created_at %></span>
                   <a>
-                    <%= link_to "Ver más", @publication3, class: "float-end btn-mas" %>
+                    <%= link_to "Ver más", @publication3, class: "float-end btn-mas me-2" %>
                   </a>
                 </div>
               </div>
@@ -156,7 +114,7 @@
 
                 <!-- Titulo -->
                 <div class = "mb-5">
-                    <p class = "fs-4">Integer cursus bibendum augue ac cursus.</p>
+                    <p class = "fs-4">Las pequeñas acciones hacen la diferencia.</p>
                 </div>
 
                 <div class = "row">
@@ -164,8 +122,8 @@
                 <!-- Texto -->
                 <div class = "col-md-6 col-md-4 col-lg-3" data-aos = "zoom-in" data-aos-delay = "100">
                     <div class = "texto-galeria">
-                        <h3 class = "fs-1">Voluptatem dignissimos provident quasi</h3>
-                        <%= link_to "Nuestro blog", publications_path, class: "btn btn-success", role: "button" %>
+                        <h3 class = "fs-1">Descubre como puedes ser parte del cambio.</h3>
+                        <%= link_to "Lee nuestro blog", publications_path, class: "btn btn-success", role: "button" %>
                     </div>
                 </div>
 

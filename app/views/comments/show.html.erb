@@ -1,48 +1,12 @@
 
-<!--
-<h1><%=@comment.subject %></h1>
-
-<div>
-  <%=@comment.detalles  %>
-</div>
-
-<%if @comment.user == current_user%>
-<p><strong>Tu publicaste esta pregunta</strong></p>
-<div>
-  <%=link_to "Eliminar comentario", @publication, method: :delete  %>
-</div>
-<% elsif admin_signed_in? %>
-<p>Publicado por: <strong><%=@comment.user.email%></strong></p>
-<div>
-  <%=link_to "Eliminar comentario", @publication, method: :delete  %>
-  <%= link_to 'Editar', edit_comment_path %>
-</div>
-<% else %>
-<p>Publicado por: <strong><%=@comment.user.email%></strong></p>
-<% end %>
-
-<%= form_for([@comment, @comment.answers.build]) do |form| %>
-  <p>
-    <%= form.label :reponder%><br>
-    <%=form.rich_text_area :respuesta %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-
-<h2>Respuesta(s)</h2>
-<%= render @comment.answers %>
--->
-
 <% @title = "Por Carmen | " + @comment.subject %>
 
+    <!-- Preguntas -->
     <div id = "comentarios" class = "container mb-5">
       <div class = "row height d-flex justify-content-center align-items-center">
           <div class = "col-md-12">
 
               <div class = "card shadow rounded-3">
-
 
                 <div class = "mt-4">
 
@@ -67,18 +31,23 @@
                                 </div>
 
                               </div>
-                              <p class = "fs-4 text-capitalize fst-italic mt-2">
-                              <%= @comment.subject %>
-                              </p>
 
-                              <p>
-                              <%= @comment.detalles %>
-                              </p>
+                              <div class = "ms-1">
+                                <p class = "fs-4 text-capitalize fst-italic mt-2">
+                                  <%= @comment.subject %>
+                                </p>
+                              </div>
+
+                              <div class = "ms-1">
+                                <p>
+                                  <%= @comment.detalles %>
+                                </p>
+                              </div>
 
 
                             <%if @comment.user == current_user%>
                             <div>
-                              <%=link_to "Eliminar", @publication, method: :delete, class: "btn btn-danger"  %>
+                              <%=link_to "Eliminar pregunta", @publication, method: :delete, class: "btn btn-danger"  %>
                             </div>
                             <% elsif admin_signed_in? %>
                             <div>
@@ -100,17 +69,17 @@
                           </div>
                       </div>
 
-      
                   </div>
 
-                  <div class = "p-2">
                     <hr/>
+
+                  <div class = "p-2">
                     <h6 class = "ms-3">Comentarios</h6>
                   </div>
 
               <% if user_signed_in? %>
                 <%= form_for([@comment, @comment.answers.build]) do |form| %>
-                  <div class = "mt-2 d-flex flex-row align-items-center p-3 form-color"> <img src = "https://cdn-icons-png.flaticon.com/512/1660/1660461.png" width = "50" class="rounded-circle mr-2"> 
+                  <div class = "mt-1 d-flex flex-row align-items-center p-3 form-color"> <img src = "https://cdn-icons-png.flaticon.com/512/1660/1660461.png" width = "50" class="rounded-circle mr-2"> 
                     <span class = "ms-1 fw-bold"><%= current_user.email %></span>
                   </div>
 
@@ -127,20 +96,10 @@
 
                   <div class = "mt-2 mb-4">
 
-                      <div class = "d-flex flex-row p-3"> <img src = "https://cdn-icons.flaticon.com/png/512/3975/premium/3975171.png?token=exp=1636427918~hmac=4328215d3030e335bf3c113fc970308f" width = "40" height = "40" class = "rounded-circle mr-3">
-                          <div class = "w-100">
-                              <div class = "d-flex justify-content-between align-items-center">
-                                  <div class = "d-flex flex-row align-items-center"> <span class = "mr-2 ms-2 fw-bold">Respuestas:</span> </div>
-                              </div>
-
-                              <div class = "ms-2 mt-2">
-                                <%= render @comment.answers %>
-                              </div>
-
-                        </div>
-                      </div>
+                    <%= render @comment.answers %>
 
                   </div>
+
               </div>
 
           </div>
